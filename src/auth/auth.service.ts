@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma/prisma.service';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { SignupDto } from './dto/signup.dto';
 import { LoginDto } from './dto/login.dto';
 
@@ -41,5 +41,9 @@ export class AuthService {
     return {
       accessToken: this.jwt.sign(payload),
     };
+  }
+
+  getHello(): string {
+    return '컨트롤러 서비스 모듈 테스트';
   }
 }
