@@ -158,7 +158,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Program Files\\IdeaProjects\\backend\\src\\generated\\client",
+      "value": "/Users/jeonb/IdeaProjects/backend/src/generated/client",
       "fromEnvVar": null
     },
     "config": {
@@ -167,7 +167,7 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "darwin-arm64",
         "native": true
       },
       {
@@ -176,7 +176,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Program Files\\IdeaProjects\\backend\\schema.prisma",
+    "sourceFilePath": "/Users/jeonb/IdeaProjects/backend/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
