@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common';
 import { StudyMembersService } from './study-members.service';
-import { StudyMembersGateway } from './study-members.gateway';
+import { StudyMembersController } from './study-members.controller';
+import { PrismaModule } from '../prisma/prisma.module';
 
 @Module({
-  providers: [StudyMembersGateway, StudyMembersService],
+  imports: [PrismaModule],
+  controllers: [StudyMembersController],
+  providers: [StudyMembersService],
 })
 export class StudyMembersModule {}
