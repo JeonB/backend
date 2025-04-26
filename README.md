@@ -1,98 +1,130 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Study Mate - 스터디 매칭 플랫폼
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Study Mate는 개발자, 디자이너, 기획자 등 다양한 분야의 전문가들이 스터디 그룹을 만들고 참여할 수 있는 매칭 플랫폼입니다.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 프로젝트 개요
 
-## Description
+이 프로젝트는 스터디 매칭 서비스의 MVP(Minimum Viable Product)를 개발하는 것을 목표로 합니다.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### 사용 기술
 
-## Project setup
+- **백엔드**: NestJS
+- **ORM**: Prisma
+- **데이터베이스**: PostgreSQL
+- **패키지 관리**: pnpm
+- **인증**: JWT
 
-```bash
-$ pnpm install
-```
+## 시작하기
 
-## Compile and run the project
+### 필수 조건
+
+- Node.js 16+
+- pnpm
+- PostgreSQL (로컬 또는 Docker)
+
+### 설치 방법
+
+1. 저장소 클론
 
 ```bash
-# development
-$ pnpm run start
-
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+git clone <repository-url>
+cd backend
 ```
 
-## Run tests
+2. 의존성 설치
 
 ```bash
-# unit tests
-$ pnpm run test
-
-# e2e tests
-$ pnpm run test:e2e
-
-# test coverage
-$ pnpm run test:cov
+pnpm install
 ```
 
-## Deployment
+3. 환경 설정
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+`.env` 파일을 생성하고 다음 내용을 추가합니다:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+```
+DATABASE_URL="postgresql://postgres:1234@localhost:5432/study_mate"
+JWT_SECRET="your_jwt_secret"
+```
+
+4. 데이터베이스 마이그레이션
 
 ```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
+pnpm prisma migrate dev --name init
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+5. 서버 실행
 
-## Resources
+```bash
+pnpm start:dev
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+## 기능
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### 인증 시스템
 
-## Support
+- 회원가입 및 로그인 기능
+- JWT 기반 인증
+- 비밀번호 암호화 (bcrypt)
+- 인증된 사용자만 접근 가능한 API
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+| 메소드 | 경로         | 설명                |
+| ------ | ------------ | ------------------- |
+| POST   | /auth/signup | 회원가입            |
+| POST   | /auth/login  | 로그인 및 토큰 발급 |
 
-## Stay in touch
+### 스터디 관리
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- 스터디 그룹 생성 (인증 필요)
+- 전체 스터디 목록 조회
+- 태그, 요일, 시간 등 다양한 필터링 옵션
 
-## License
+| 메소드 | 경로     | 설명                      |
+| ------ | -------- | ------------------------- |
+| POST   | /studies | 스터디 생성 (로그인 필요) |
+| GET    | /studies | 전체 스터디 조회          |
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### 스터디 참가 관리
+
+- 스터디 참가 신청
+- 스터디 개설자의 참가 신청 수락/거절
+- 참가자 목록 조회
+
+| 메소드 | 경로                              | 설명             |
+| ------ | --------------------------------- | ---------------- |
+| POST   | /studies/:studyId/apply           | 스터디 참가 신청 |
+| PATCH  | /studies/:studyId/approve/:userId | 참가자 수락      |
+| PATCH  | /studies/:studyId/reject/:userId  | 참가자 거절      |
+| GET    | /studies/:studyId/members         | 참가자 목록 조회 |
+
+## 데이터 모델
+
+### User
+
+- 사용자 정보 (이메일, 비밀번호, 이름 등)
+- 관심 분야
+- 가능한 요일
+
+### Study
+
+- 스터디 기본 정보 (제목, 설명, 태그 등)
+- 스터디 일정 (요일, 시간)
+- 최대 참가자 수
+
+### StudyMember
+
+- 스터디 참가 정보
+- 참가 상태 (PENDING, ACCEPTED, REJECTED)
+
+## 테스트
+
+단위 테스트 실행:
+
+```bash
+pnpm test
+```
+
+E2E 테스트 실행:
+
+```bash
+pnpm test:e2e
+```
